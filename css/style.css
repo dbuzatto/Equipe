@@ -1,63 +1,55 @@
-/* Definindo variáveis CSS para as novas cores */
 :root {
     --color-primary-blue: #215395;
     --color-secondary-yellow: #FFCC29;
     --color-background: #2A3B4C;
     --color-text-light: #E0E6EB;
     --color-detail-blue: #4A7CA6;
-    --color-card-bg: #FFFFFF;
+    --color-card-bg: transparent;
 }
 
-/* Novo estilo para o body para o fundo escuro */
 body {
-    background-color: var(--color-background);
+    background: url("../assets/img/background.png") no-repeat center center fixed;
+    background-size: cover;
     color: var(--color-text-light);
+    position: relative;
+    z-index: 0;
 }
 
-/* Contêiner do Carrossel */
 #carousel {
     display: flex;
-   
     transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     will-change: transform;
 }
 
-/* Estilos para o cartão do membro */
 .team-member-card {
     min-width: 100%;
     flex-shrink: 0;
-    /* AUMENTADO: de 0.7s para 1.0s */
-    transition: transform 3s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-                opacity 1.0s ease-in-out; /* Opacity também sincronizada */
-    opacity: 0.3;
-    transform: scale(0.85);
-    margin-right: 0px;
-    background-color: var(--color-card-bg);
+    transition: transform 1.2s ease, opacity 0.8s ease;
+    opacity: 0.9;
+    transform: scale(0.92);
+    background-color: white;
+    margin-right: 0;
     color: #4a5568;
-    will-change: transform, opacity;
+    position: relative;
+    z-index: 30;
 }
 
-/* Estilo para o cartão ativo no carrossel */
 .team-member-card.active {
     opacity: 1;
     transform: scale(1);
 }
 
-/* Estilo para os indicadores do carrossel */
 .carousel-indicator {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background-color: #5A6D81;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
 }
 
 .carousel-indicator.active {
     background-color: var(--color-primary-blue);
 }
 
-/* Animações Gerais (mantidas para compatibilidade com AOS) */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -68,7 +60,6 @@ body {
     opacity: 0;
 }
 
-/* Contêiner da lista de atribuições */
 .assignments-list {
     display: flex;
     flex-wrap: wrap;
@@ -80,7 +71,6 @@ body {
     padding-right: 5px;
 }
 
-/* Estilo para cada item da atribuição*/
 .assignment-item {
     background-color: var(--color-secondary-yellow);
     color: var(--color-primary-blue);
@@ -91,57 +81,85 @@ body {
     white-space: nowrap;
     opacity: 0;
     transform: translateY(10px);
-    transition: none; /* remove qualquer transição para evitar conflito com animation */
 }
 
-/* Nova animação de keyframes para os chips */
 @keyframes chipFadeInUp {
-    from {
-        opacity: 1;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(1px);
-    }
+    from { opacity: 1; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(1px); }
 }
 
-/* Classe de gatilho para a animação sequencial dos chips */
 .assignments-list.animate-chips .assignment-item {
     animation: chipFadeInUp 0.4s ease-out forwards;
-    /* Delay será adicionado via inline style no JS */
 }
 
-
-/* Estilos para a borda da imagem do perfil */
 .team-member-card img {
     border-color: var(--color-detail-blue);
 }
 
-/* Estilo para a cor do texto do cargo */
 .role-text-color {
     color: var(--color-primary-blue);
 }
 
-/* Scrollbar styling (for a nicer look) */
-.assignments-list::-webkit-scrollbar {
-    width: 8px;
+.photo-wrapper {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 1.5rem auto;
 }
 
-.assignments-list::-webkit-scrollbar-track {
-    background: #3A4C5E;
-    border-radius: 10px;
+.photo-wrapper img.profile-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    object-fit: cover;
+    border: 4px solid var(--color-detail-blue);
 }
 
-.assignments-list::-webkit-scrollbar-thumb {
-    background: #6B7C8F;
-    border-radius: 10px;
+.photo-wrapper img.gorro {
+    position: absolute;
+    top: -65px;
+    left: 30%;
+    width: 115px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 10;
 }
 
-.assignments-list::-webkit-scrollbar-thumb:hover {
-    background: #8090A0;
+.snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 50;
 }
 
-.logo-corner {
+.snow::before,
+.snow::after {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 10px 10px, white 50%, transparent 50%),
+        radial-gradient(3px 3px at 20px 20px, white 50%, transparent 50%),
+        radial-gradient(2px 2px at 30px 30px, white 50%, transparent 50%),
+        radial-gradient(3px 3px at 40px 40px, white 50%, transparent 50%),
+        radial-gradient(2px 2px at 50px 50px, white 50%, transparent 50%);
+    background-size: 200px 200px;
+    animation: snowfall 12s linear infinite;
+}
 
+.snow::after {
+    animation-duration: 18s;
+    opacity: 0.6;
+}
+
+@keyframes snowfall {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100%); }
 }

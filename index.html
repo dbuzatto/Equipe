@@ -9,35 +9,37 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="font-sans leading-normal tracking-normal overflow-x-hidden flex items-center justify-center min-h-screen">
-    <video id="keep-awake-video" autoplay muted loop playsinline style="
-        position: fixed;
-        width: 1px;
-        height: 1px;
-        opacity: 0;
-        pointer-events: none;
-    ">
+<body class="font-sans leading-normal tracking-normal overflow-x-hidden min-h-screen relative z-0">
+
+    <video id="keep-awake-video" autoplay muted loop playsinline style="position: fixed;width: 1px;height: 1px;opacity: 0;pointer-events: none;">
         <source src="assets/videos/Suporte_de_TI.mp4" type="video/mp4">
     </video>
 
-    <div class="logo-corner absolute top-8 left-8 z-10">
+    <div class="logo-corner absolute top-8 left-8 z-20">
         <img src="assets/img/logo.png" alt="Logo Suporte CCL" class="h-20 w-30">
     </div>
 
-    <section id="team" class="py-16 overflow-hidden w-full" data-aos="fade-up" data-aos-duration="1000">
+    <section id="team" class="min-h-screen flex items-center justify-center overflow-hidden w-full relative z-20" 
+             data-aos="fade-up" data-aos-duration="1000">
+
         <div class="container mx-auto px-6">
             <h3 class="text-3xl md:text-4xl font-bold text-center mb-12 animate-fade-in text-white">SUPORTE CCL</h3>
+
             <div class="relative w-full max-w-4xl mx-auto group">
                 <div id="carousel" class="flex transition-transform duration-500 ease-in-out"></div>
 
-                <button id="prevBtn" class="absolute top-1/2 left-0 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-200 focus:outline-none transition-all duration-300 ml-4 opacity-0 group-hover:opacity-100" aria-label="Anterior">
-                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <button id="prevBtn" 
+                    class="absolute top-1/2 left-0 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-200 
+                           transition-all duration-300 ml-4 opacity-0 group-hover:opacity-100">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </button>
 
-                <button id="nextBtn" class="absolute top-1/2 right-0 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-200 focus:outline-none transition-all duration-300 mr-4 opacity-0 group-hover:opacity-100" aria-label="Próximo">
-                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <button id="nextBtn" 
+                    class="absolute top-1/2 right-0 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-200 
+                           transition-all duration-300 mr-4 opacity-0 group-hover:opacity-100">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </button>
@@ -49,13 +51,10 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            once: true,
-            mirror: false,
-            duration: 300000,
-            easing: 'ease-out-cubic',
-        });
+        AOS.init({ once: true, mirror: false, duration: 300000, easing: 'ease-out-cubic' });
     </script>
     <script src="js/script.js"></script>
+
+    <div class="snow"></div>
 </body>
 </html>
