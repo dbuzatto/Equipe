@@ -1,3 +1,20 @@
+let wakeLock = null;
+
+async function requestWakeLock() {
+    if (!("wakeLock" in navigator)) return;
+
+    try {
+        wakeLock = await navigator.wakeLock.request("screen");
+        wakeLock.addEventListener("release", () => requestWakeLock());
+    } catch (err) {}
+}
+
+document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") requestWakeLock();
+});
+
+requestWakeLock();
+
 document.addEventListener('DOMContentLoaded', () => {
     const teamMembers = [
         {
