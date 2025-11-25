@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = document.createElement('div');
         card.classList.add(
             'team-member-card', 'bg-white', 'rounded-lg', 'shadow-xl',
-            'p-8', 'text-center', 'transform', 'scale-90', 'opacity-50',
+            'p-8', 'text-center',            'transform', 'scale-90', 'opacity-50',
             'flex-shrink-0', 'w-full', 'max-w-md', 'mx-auto'
         );
 
@@ -215,6 +215,11 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCarousel();
     });
 });
+
+setInterval(() => {
+    window.scrollBy(0, 1);
+    window.scrollBy(0, -1);
+}, 30000);
 
 setInterval(() => {
     const evTouch = new Event("touchstart", { bubbles: true });
