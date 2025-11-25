@@ -2,7 +2,6 @@ let wakeLock = null;
 
 async function requestWakeLock() {
     if (!("wakeLock" in navigator)) return;
-
     try {
         wakeLock = await navigator.wakeLock.request("screen");
         wakeLock.addEventListener("release", () => requestWakeLock());
@@ -216,3 +215,16 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCarousel();
     });
 });
+
+setInterval(() => {
+    const evTouch = new Event("touchstart", { bubbles: true });
+    document.dispatchEvent(evTouch);
+    const evMouse = new MouseEvent("mousemove", {
+        clientX: 1,
+        clientY: 1,
+        bubbles: true
+    });
+    document.dispatchEvent(evMouse);
+    const evKey = new KeyboardEvent("keydown", { key: "Shift", bubbles: true });
+    document.dispatchEvent(evKey);
+}, 45000);
