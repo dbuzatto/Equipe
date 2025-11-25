@@ -163,3 +163,21 @@ body {
     0% { transform: translateY(0); }
     100% { transform: translateY(100%); }
 }
+
+.renas-animadas {
+    position: fixed;
+    bottom: 40px;
+    left: -250px;
+    width: 400px;
+    animation: renasAndando 12s linear infinite;
+    z-index: 60;
+}
+
+.renas-animadas img {
+    width: 100%;
+}
+
+@keyframes renasAndando {
+    0% { left: -250px; }
+    100% { left: 110%; }
+}
