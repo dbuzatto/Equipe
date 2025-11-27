@@ -17,6 +17,14 @@ requestWakeLock();
 document.addEventListener('DOMContentLoaded', () => {
     const teamMembers = [
         {
+            name: "Equipe Completa",
+            role: "",
+            bio: [],
+            image: "assets/img/todos.png",
+            isFullTeam: true,
+            social: { linkedin: "", github: "", twitter: "" }
+        },
+        {
             name: "Pablo Ramos",
             role: "Analista de Suporte de Sistemas Junior",
             bio: [
@@ -117,9 +125,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createMemberCard(member) {
         const card = document.createElement('div');
+
+        if (member.isFullTeam) {
+            card.classList.add(
+                'team-member-card', 'bg-white', 'rounded-lg', 'shadow-xl',
+                'p-0', 'text-center', 'flex-shrink-0', 'w-full'
+            );
+
+            card.innerHTML = `
+                <div class="full-team-card">
+                    <img src="${member.image}" class="full-team-photo">
+                </div>
+            `;
+
+            return card;
+        }
+
         card.classList.add(
             'team-member-card', 'bg-white', 'rounded-lg', 'shadow-xl',
-            'p-8', 'text-center',            'transform', 'scale-90', 'opacity-50',
+            'p-8', 'text-center', 'transform', 'scale-90', 'opacity-50',
             'flex-shrink-0', 'w-full', 'max-w-md', 'mx-auto'
         );
 
