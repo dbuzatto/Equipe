@@ -20,97 +20,67 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Equipe Completa",
             role: "",
             bio: [],
-            image: "assets/img/todos.png",
+            image: "assets/img/TODOS.png",
             isFullTeam: true,
             social: { linkedin: "", github: "", twitter: "" }
         },
         {
-            name: "Pablo Ramos",
-            role: "Analista de Suporte de Sistemas Junior",
+            name: "Diego Prado de Moraes",
+            role: "Consultor de Negócios",
             bio: [
-                "FATURAMENTO / EMISSÃO DE CONTRATOS",
-                "CONTAGEM DIGTAL",
-                "ROTEIRO DIGITAL",
-                "AFASTAMENTO DIGITAL",
-                "CONTRATO DIGITAL",
-                "SANKHYA",
-                "HOMOLOGAÇÃO BOLETOS",
-                "ERRO BOLETOS",
-                "HOMOLOGAÇÃO PIX DINAMICO",
-                "ERRO PIX DINAMICO E LINK DE PAGAMENTO",
-                "CADASTRO DE EQUIPAMENTOS",
-                "SUPORTE A CONSULTORES",
-                "ERROS DEVOLUÇÃO"
+                "ATENDIMENTO AOS FRANQUEADOS",
+                "VISITAS NAS LOJAS",
+                "PICC"
             ],
-            image: "assets/img/pablo.png",
+            image: "assets/img/DIEGO.jpg",
             social: { linkedin: "#", github: "", twitter: "" }
         },
         {
-            name: "Maxwell Rodrigues",
-            role: "Analista de Suporte de Sistemas Junior",
-            bio: [
-                "TRANSFERENCIAS ESTOQUE - ERROS DE MOVIMENTAÇÕES",
-                "MOVIMENTAÇÕES FINANCEIRAS",
-                "ROTEIRO DIGITAL",
-                "CONTRATO DIGITAL",
-                "SMTP",
-                "SANKHYA",
-                "HOMOLOGAÇÃO BOLETOS",
-                "ERRO BOLETOS",
-                "HOMOLOGAÇÃO PIX DINAMICO",
-                "ERRO PIX DINAMICO E LINK DE PAGAMENTO",
-                "NFE EM GERAL",
-                "ERROS DEVOLUÇÃO",
-                "CHAVE DE REGISTRO"
-            ],
-            image: "assets/img/Max.png",
+            name: "Matheus Fuzaro",
+            role: "Gerente da Consultoria",
+            bio: [],
+            image: "assets/img/MATHEUS.jpg",
             social: { linkedin: "#", github: "", twitter: "" }
         },
         {
-            name: "Teilor Apolinário",
-            role: "Analista de Suporte de Sistemas Junior",
+            name: "Marcio Rubia",
+            role: "Consultor de Negócios",
             bio: [
-                "BANCO DE OFERTAS",
-                "GERENCIAL",
-                "FECHAMENTO",
-                "REEMBOLSO",
-                "ERROS DEVOLUÇÃO",
-                "NFE EM GERAL",
-                "AFASTAMENTO DIGITAL",
-                "CONTAGEM DIGITAL",
-                "ERRO RELATORIOS"
+                "ATENDIMENTO AOS FRANQUEADOS",
+                "VISITAS NAS LOJAS",
+                "PICC"
             ],
-            image: "assets/img/Teilor.jpg",
+            image: "assets/img/MARCIO.jpg",
             social: { linkedin: "#", github: "", twitter: "" }
         },
         {
-            name: "Gabrielle Santos",
-            role: "Jovem Aprendiz",
+            name: "Maria Medicci",
+            role: "Analista Pleno de Dados Comerciais",
             bio: [
-                "SMTP",
-                "CHAVE DE REGISTRO",
-                "SUPORTE A CONSULTORES",
-                "SUGESTÕES DE MELHORIA",
-                "INSTALAÇÕES EM GERAL"
+                "SUPORTE À CONSULTORIA",
+                "SULTS"
             ],
-            image: "assets/img/Gabrielle.png",
+            image: "assets/img/MARIA.jpg",
             social: { linkedin: "#", github: "", twitter: "" }
         },
         {
-            name: "Bruno Beloto",
-            role: "Analista de Suporte de Sistemas Pleno",
+            name: "Marco Robert",
+            role: "Consultor de Negócios",
             bio: [
-                "BANCO DE OFERTAS",
-                "TRANSFERENCIAS - MOVIMENTAÇÕES FINANCEIRAS",
-                "GERENCIAL",
-                "CADASTRO DE EQUIPAMENTOS",
-                "FECHAMENTO",
-                "REEMBOLSO",
-                "SUGESTÃO DE MELHORIA",
-                "SUPORTE N3",
-                "FATURAMENTO / EMISSÃO DE CONTRATOS"
+                "ATENDIMENTO AOS FRANQUEADOS",
+                "VISITAS NAS LOJAS"
             ],
-            image: "assets/img/Bruno Beloto.png",
+            image: "assets/img/MARQUNHOS.jpg",
+            social: { linkedin: "#", github: "", twitter: "" }
+        },
+        {
+            name: "Marina Brigatto",
+            role: "Consultor de Negócios",
+            bio: [
+                "ATENDIMENTO AOS FRANQUEADOS",
+                "VISITAS NAS LOJAS"
+            ],
+            image: "assets/img/MARINA.jpg",
             social: { linkedin: "#", github: "", twitter: "" }
         }
     ];
@@ -151,9 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
             .map((assignment, idx) => `<span class="assignment-item" style="animation-delay:${50 * idx}ms;">${assignment}</span>`)
             .join('');
 
+        const photoClass = member.image.includes('MARCIO') ? 'profile-photo photo-marcio' : 'profile-photo';
+
         card.innerHTML = `
             <div class="photo-wrapper">
-                <img src="${member.image}" class="profile-photo">
+                <img src="${member.image}" class="${photoClass}">
                 <img src="assets/img/gorro.png" class="gorro">
             </div>
             <h4 class="text-2xl font-bold text-gray-800 mb-2">${member.name}</h4>
